@@ -1,30 +1,7 @@
 /*
  * Lab 3, Task 3
- * Name: <your name>
- * Student ID: <your student ID>
- *
- * Implement basic string handling functions.
- * Write your own versions of:
- *   - my_strlen (finds string length, not counting '\0')
- *   - my_strcpy (copies string from src to dest, INCLUDING the '\0')
- *
- * Rules:
- *   - Do not include <string.h> or call any library string functions.
- *   - Use loops and manual pointer/array access.
- *   - Must work for the empty string "" (length 0).
- *   - You may assume dest is large enough (the caller guarantees it).
- *   - Do not modify main.
- *
- * Example:
- *   char s[] = "hello";
- *   int len = my_strlen(s);   // should return 5
- *
- *   char buffer[100];
- *   my_strcpy(buffer, s);     // buffer now contains "hello"
- *
- * Required output:
- *   Length: 16
- *   Copy: Programming in C
+ * Name: Akram Mammadov
+ * Student ID: 251ADB131
  */
 
 #include <stdio.h>
@@ -48,10 +25,15 @@ int main(void) {
 
 // Implement functions below
 int my_strlen(const char *str) {
-    // TODO: count characters until '\0'
-    return 0; // placeholder
+    const char *start = str;
+    while (*str != '\0') {
+        str++;
+    }
+    return (int)(str - start);
 }
 
 void my_strcpy(char *dest, const char *src) {
-    // TODO: copy characters until '\0', then write the '\0' into dest
+    while ((*dest++ = *src++) != '\0') {
+        // body intentionally empty: copy happens in the condition
+    }
 }

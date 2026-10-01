@@ -1,28 +1,7 @@
 /*
  * Lab 3, Task 2
- * Name: <your name>
- * Student ID: <your student ID>
- *
- * Practice using pointers as function parameters.
- * Implement:
- *   - swap (exchange values of two ints)
- *   - modify_value (multiply given int by 2)
- *
- * Rules:
- *   - Use pointers to modify variables in the caller.
- *   - Functions must not print anything.
- *   - swap(&a, &a) must leave a unchanged.
- *   - Do not modify main.
- *
- * Example:
- *   int a = 3, b = 7;
- *   swap(&a, &b);     // now a = 7, b = 3
- *   modify_value(&a); // now a = 14
- *
- * Required output:
- *   Before swap: a=3, b=7
- *   After swap: a=7, b=3
- *   After modify_value: a=14
+ * Name: Akram Mammadov
+ * Student ID: 251ADB131
  */
 
 #include <stdio.h>
@@ -45,9 +24,14 @@ int main(void) {
 
 // Implement functions below
 void swap(int *x, int *y) {
-    // TODO: swap values using a temporary variable
+    if (x == y) {
+        return; // same address: nothing to do, avoids corrupting the value
+    }
+    int old_x = *x;
+    *x = *y;
+    *y = old_x;
 }
 
 void modify_value(int *x) {
-    // TODO: multiply value by 2
+    *x += *x; // add value to itself instead of multiplying
 }

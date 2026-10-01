@@ -1,35 +1,7 @@
 /*
  * Lab 3, Task 1
- * Name: <your name>
- * Student ID: <your student ID>
- *
- * Implement array algorithms:
- *   - find minimum value
- *   - find maximum value
- *   - calculate sum
- *   - calculate average
- *
- * Rules:
- *   - Write separate functions for each operation.
- *   - Work with int arrays.
- *   - Do not include any headers besides <stdio.h>.
- *   - You may assume size >= 1 and that the sum fits in an int.
- *   - Average must return a float and must NOT be truncated
- *     (e.g. {1, 2} -> 1.50, not 1.00).
- *   - Do not modify main.
- *
- * Example:
- *   int arr[] = {1, 2, 3, 4, 5};
- *   min = array_min(arr, 5); // 1
- *   max = array_max(arr, 5); // 5
- *   sum = array_sum(arr, 5); // 15
- *   avg = array_avg(arr, 5); // 3.0
- *
- * Required output:
- *   Min: 5
- *   Max: 30
- *   Sum: 80
- *   Avg: 16.00
+ * Name: Akram Mammadov
+ * Student ID: 251ADB131
  */
 
 #include <stdio.h>
@@ -54,21 +26,42 @@ int main(void) {
 
 // Implement functions below
 int array_min(int arr[], int size) {
-    // TODO: return smallest element
-    return 0; // placeholder
+    int *p = arr;
+    int *end = arr + size;
+    int min = *p;
+
+    for (p = arr + 1; p < end; p++) {
+        if (*p < min) {
+            min = *p;
+        }
+    }
+    return min;
 }
 
 int array_max(int arr[], int size) {
-    // TODO: return largest element
-    return 0; // placeholder
+    int *p = arr;
+    int *end = arr + size;
+    int max = *p;
+
+    for (p = arr + 1; p < end; p++) {
+        if (*p > max) {
+            max = *p;
+        }
+    }
+    return max;
 }
 
 int array_sum(int arr[], int size) {
-    // TODO: return sum of elements
-    return 0; // placeholder
+    int total = 0;
+    int *p;
+
+    for (p = arr; p < arr + size; p++) {
+        total += *p;
+    }
+    return total;
 }
 
 float array_avg(int arr[], int size) {
-    // TODO: return average as float (avoid integer division)
-    return 0.0f; // placeholder
+    // Cast to float BEFORE dividing so the result isn't truncated
+    return (float)array_sum(arr, size) / (float)size;
 }
